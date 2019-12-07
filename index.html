@@ -1,0 +1,43 @@
+<html>
+
+<body>
+
+
+    asdasd
+
+    <script>
+        //x: 1077
+        //y: 127
+        function onSelect(event) {
+            console.log(event, "")
+            let rect = window.getSelection().getRangeAt(0).getBoundingClientRect()
+            console.log(rect)
+            createFrame(rect.right , rect.y)
+
+        }
+
+        function createFrame() {
+
+            let rect = window.getSelection().getRangeAt(0).getBoundingClientRect()
+            const x = rect.right
+            const y = rect.y
+            //let iframe = document.createElement("iframe")
+            //iframe.src = "https://portal.unisimon.edu.co/estudiantes/index.php/notas"
+
+
+            let popup = document.createElement("div");
+            popup.innerHTML = "Translate"
+            popup.style.position = "absolute"
+            popup.style.background = "red"
+            popup.style.padding = "10px"
+            popup.style.left = x
+            popup.style.top = y
+
+            document.body.appendChild(popup)
+        }
+
+        window.addEventListener('mouseup', onSelect);
+    </script>
+</body>
+
+</html>
